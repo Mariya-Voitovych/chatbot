@@ -4,6 +4,8 @@ class Room < ApplicationRecord
   has_many :messages
   has_many :participants
 
+  scope :only_public, -> { where(is_private: false) }
+
   def self.create_private_room(users, room_name)
     single_room = Room.create(name: room_name, is_private: true)
     users.each do |user|
