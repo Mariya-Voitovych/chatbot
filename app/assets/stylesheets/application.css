@@ -41,3 +41,9 @@
   background-color: #555555 ;
   padding: 10px
 }
+
+#message_time{
+  color: rgb(0, 0, 0);
+  text-align: right;
+  font-size: 80%;
+}

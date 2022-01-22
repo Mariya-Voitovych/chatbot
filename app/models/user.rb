@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :messages  
-  
+  after_create_commit { broadcast_append_to "users" }
+
   scope :except_me, ->(user) { where.not(id: user.id) }
   
   def username
